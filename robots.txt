@@ -1,0 +1,6 @@
+# Robots.txt de Le Canele
+User-agent: *
+Allow: /
+Disallow: /gallery.html  # Ocultar la galería de desarrollo de los buscadores
+
+Sitemap: [AÑADIR URL PÚBLICA]/sitemap.xml

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js-enabled');</script>
+  
+  <!-- SEO Técnico -->
+  <title>Contacto y Localización | Le Canele Pastelería Artesanal</title>
+  <meta name="description" content="Ponte en contacto con Le Canele. Reserva tus tartas personalizadas o consulta dudas sobre nuestro obrador artesanal. Dirección, teléfono y horario de apertura.">
+  <link rel="canonical" href="[AÑADIR URL PÚBLICA]/contacto.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contacta con Le Canele | Atelier de Alta Pastelería">
+  <meta property="og:description" content="¿Tienes una duda o quieres realizar un encargo? Escríbenos o ven a visitarnos en nuestro atelier de repostería artesanal.">
+  <meta property="og:image" content="images/brand/logo-le-canele-transparent.png">
+  <meta property="og:url" content="[AÑADIR URL PÚBLICA]/contacto.html">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="src/styles/style.css">
+  
+  <!-- Favicon Oficial -->
+  <link rel="icon" type="image/png" href="images/brand/favicon-le-canele.png">
+</head>
+<body>
+
+  <!-- Marcador de Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Contenido Principal -->
+  <main id="main-content">
+    
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Ruta de navegación" style="background-color: var(--color-bg-base);">
+      <div class="container">
+        <ul class="breadcrumbs-list">
+          <li class="breadcrumbs-item"><a href="index.html">Inicio</a></li>
+          <li class="breadcrumbs-item active">Contacto</li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Sección de Contacto -->
+    <section class="section" style="padding-top: clamp(4rem, 6vh, 6rem); background-color: var(--color-bg-base);">
+
+      <div class="container contact-grid">
+        
+        <!-- Info Column -->
+        <div class="contact-info-column fade-in-up active">
+          <span class="section-subtitle">Atelier Le Canele</span>
+          <h2>Visítanos o escríbenos</h2>
+          <p class="contact-info-lead">
+            Estamos disponibles para atenderte personalmente, resolver tus dudas sobre alérgenos o guiarte en el diseño de tu próximo encargo dulce.
+          </p>
+          
+          <ul class="contact-details-list">
+            <!-- Dirección -->
+            <li class="contact-details-item">
+              <div class="contact-details-icon">📍</div>
+              <div class="contact-details-text">
+                <h4>Dirección</h4>
+                <p id="contact-address">[AÑADIR DIRECCIÓN]</p>
+              </div>
+            </li>
+            
+            <!-- Horario -->
+            <li class="contact-details-item">
+              <div class="contact-details-icon">🕒</div>
+              <div class="contact-details-text">
+                <h4>Horario</h4>
+                <p id="contact-hours">[AÑADIR HORARIO]</p>
+              </div>
+            </li>
+
+            <!-- Teléfono -->
+            <li class="contact-details-item">
+              <div class="contact-details-icon">📞</div>
+              <div class="contact-details-text">
+                <h4>Teléfono</h4>
+                <p><a href="tel:600000000" id="contact-phone">[AÑADIR TELÉFONO]</a></p>
+              </div>
+            </li>
+
+            <!-- Email -->
+            <li class="contact-details-item">
+              <div class="contact-details-icon">✉️</div>
+              <div class="contact-details-text">
+                <h4>Correo electrónico</h4>
+                <p><a href="mailto:hola@lecanele.com" id="contact-email">[AÑADIR CORREO ELECTRÓNICO]</a></p>
+              </div>
+            </li>
+
+            <!-- Instagram -->
+            <li class="contact-details-item">
+              <div class="contact-details-icon">📷</div>
+              <div class="contact-details-text">
+                <h4>Instagram</h4>
+                <p><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" id="contact-instagram">[AÑADIR INSTAGRAM]</a></p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Mapa Placeholder Interactivo -->
+          <div class="map-container">
+            <div class="map-placeholder">
+              <div class="contact-details-icon" style="background-color: var(--color-brand-pink); color: var(--color-text-main); font-size: 1.5rem; width: 56px; height: 56px; margin-bottom: 15px;">🗺️</div>
+              <h3 class="map-placeholder-title">Localización</h3>
+              <p class="map-placeholder-desc">Coordenadas: <span id="contact-coords">[AÑADIR COORDENADAS]</span></p>
+              <a href="#" id="open-map-btn" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">
+                Abrir en Google Maps
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Formulario Column -->
+        <div class="contact-form-column fade-in-up active">
+          <div class="form-card" id="contact-form-container" style="padding: clamp(1.5rem, 4vw, 3.5rem);">
+            <h3 class="form-serif" style="margin-bottom: 25px; font-size: 1.65rem; border-bottom: 1.5px dashed var(--color-border); padding-bottom: 15px; color: var(--color-text-main);">Enviar una consulta</h3>
+            
+            <form id="contact-form" novalidate>
+              
+              <!-- Nombre -->
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Nombre Completo *</label>
+                <input type="text" id="contact-name" class="form-control" placeholder="Ej. Sofía García" required>
+                <div class="form-error-msg">Este campo es obligatorio.</div>
+              </div>
+
+              <!-- Correo -->
+              <div class="form-group">
+                <label for="contact-form-email" class="form-label">Correo Electrónico *</label>
+                <input type="email" id="contact-form-email" class="form-control" placeholder="Ej. sofia@email.com" required>
+                <div class="form-error-msg">Introduce un correo electrónico válido.</div>
+              </div>
+
+              <!-- Teléfono -->
+              <div class="form-group">
+                <label for="contact-form-phone" class="form-label">Teléfono *</label>
+                <input type="tel" id="contact-form-phone" class="form-control" placeholder="Ej. 600000000" required>
+                <div class="form-error-msg">Introduce un teléfono de contacto válido.</div>
+              </div>
+
+              <!-- Mensaje -->
+              <div class="form-group">
+                <label for="contact-form-message" class="form-label">Mensaje *</label>
+                <textarea id="contact-form-message" class="form-control" placeholder="Escribe aquí tu consulta..." required></textarea>
+                <div class="form-error-msg">Este campo es obligatorio.</div>
+              </div>
+
+              <!-- Aceptación Privacidad -->
+              <label class="form-checkbox">
+                <input type="checkbox" id="contact-privacy" required>
+                <span>Acepto la <a href="legal.html#privacidad" target="_blank" style="text-decoration: underline; color: var(--color-brand-coral);">política de privacidad</a>.</span>
+                <span class="form-error-msg" style="display: block; margin-top: 5px; color: var(--color-error); font-weight: 500; display: none;">Debes aceptar la política de privacidad.</span>
+              </label>
+
+              <!-- Botón de Envío -->
+              <div style="margin-top: 30px;">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                  <span class="loader-spinner"></span>
+                  <span class="btn-text">Enviar mensaje</span>
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Marcador de Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Lógica Dinámica -->
+  <script type="module">
+    import { businessConfig } from './src/config/business.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('contact-address').textContent = `${businessConfig.address}, ${businessConfig.postalCode} ${businessConfig.city}`;
+      document.getElementById('contact-hours').textContent = businessConfig.openingHours;
+      
+      const phoneEl = document.getElementById('contact-phone');
+      phoneEl.textContent = businessConfig.phone;
+      phoneEl.href = `tel:${businessConfig.phone.replace(/\s/g, '')}`;
+
+      const emailEl = document.getElementById('contact-email');
+      emailEl.textContent = businessConfig.email;
+      emailEl.href = `mailto:${businessConfig.email}`;
+
+      const instagramEl = document.getElementById('contact-instagram');
+      instagramEl.textContent = `@${businessConfig.instagram}`;
+      instagramEl.href = businessConfig.socialLinks.instagram;
+
+      document.getElementById('contact-coords').textContent = businessConfig.mapCoordinates;
+    });
+  </script>
+
+  <script type="module" src="src/components/header.js"></script>
+  <script type="module" src="src/components/footer.js"></script>
+  <script type="module" src="src/components/whatsapp.js"></script>
+  <script type="module" src="src/components/cookies.js"></script>
+  <script type="module" src="src/js/app.js"></script>
+</body>
+</html>

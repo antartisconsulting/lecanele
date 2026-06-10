@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js-enabled');</script>
+  
+  <!-- SEO Técnico -->
+  <title>Le Canele | Pastelería Artesanal y Tartas Personalizadas</title>
+  <meta name="description" content="Descubre Le Canele, pastelería artesanal contemporánea. Especialistas en macarons de autor, pasteles individuales de diseño y tartas personalizadas para celebraciones especiales.">
+  <link rel="canonical" href="[AÑADIR URL PÚBLICA]/index.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Le Canele | Pastelería Artesanal">
+  <meta property="og:description" content="Pequeños momentos especiales elaborados con detalle, técnica y mucho cariño en nuestro atelier de repostería artesanal.">
+  <meta property="og:image" content="images/brand/logo-le-canele-transparent.png">
+  <meta property="og:url" content="[AÑADIR URL PÚBLICA]/index.html">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Le Canele | Pastelería Artesanal">
+  <meta name="twitter:description" content="Pequeños momentos especiales creados mediante alta pastelería tradicional con mirada contemporánea.">
+  <meta name="twitter:image" content="images/brand/logo-le-canele-transparent.png">
+
+  <!-- Hojas de Estilos -->
+  <link rel="stylesheet" href="src/styles/style.css">
+  
+  <!-- Favicon Oficial -->
+  <link rel="icon" type="image/png" href="images/brand/favicon-le-canele.png">
+</head>
+<body>
+
+  <!-- Loader Inicial de Entrada -->
+  <div class="initial-loader" id="initial-loader">
+    <div class="loader-content">
+      <img src="images/brand/logo-le-canele-transparent.png" alt="Le Canele" class="loader-logo">
+      <div class="loader-line-container">
+        <div class="loader-line-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Marcador de Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Contenido Principal -->
+  <main id="main-content">
+    
+    <!-- 8.1. Hero Principal Editorial (Split-Screen High End) -->
+    <section class="hero-section-editorial" aria-label="Introducción y bienvenida">
+      <div class="container hero-grid-new">
+        <!-- Columna Izquierda: Contenido y Textos -->
+        <div class="hero-content-col">
+          <span class="hero-subtitle-new">LE CANELE · PASTELERÍA ARTESANAL</span>
+          <h1 class="hero-title-new">Creaciones dulces<br>hechas para celebrar<br>los pequeños momentos</h1>
+          <p class="hero-text-new">Elaboramos cada pieza con detalle, sensibilidad y dedicación para convertir cualquier ocasión en un momento especial.</p>
+          <div class="hero-buttons-new">
+            <a href="productos.html" class="btn btn-primary">DESCUBRIR CREACIONES</a>
+            <a href="tartas-personalizadas.html" class="btn btn-secondary">REALIZAR UN ENCARGO</a>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Vídeo Enmarcado Premium -->
+        <div class="hero-video-col">
+          <div class="hero-video-frame">
+            <video class="hero-video-bg" id="hero-video" autoplay loop muted playsinline poster="images/posters/hero-le-canele-desktop.jpg" aria-hidden="true" style="width: 100%; height: 100%; object-fit: cover;">
+              <!-- Desktop sources -->
+              <source src="videos/hero-le-canele-desktop.webm" type="video/webm" media="(min-width: 769px)">
+              <source src="videos/hero-le-canele-desktop.mp4" type="video/mp4" media="(min-width: 769px)">
+              <!-- Mobile sources -->
+              <source src="videos/hero-le-canele-mobile.webm" type="video/webm" media="(max-width: 768px)">
+              <source src="videos/hero-le-canele-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+            </video>
+            <!-- Botón de Control de Video -->
+            <button class="video-control-btn-inner" id="video-control" aria-label="Pausar video" aria-live="polite">⏸</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicador de Scroll -->
+      <div class="scroll-indicator-new">
+        <span>Deslizar</span>
+        <div class="scroll-indicator-line"></div>
+      </div>
+    </section>
+
+    <!-- Transición limpia del Hero -->
+    <div class="hero-transition-spacer" style="height: clamp(3rem, 6vh, 6rem); background-color: var(--color-bg-crema);"></div>
+
+    <!-- 8.2. Franja de Valores Refinada -->
+    <section class="values-banner" style="background-color: var(--color-bg-crema);" aria-label="Nuestros pilares">
+      <div class="container">
+        <div class="values-grid-new">
+          <div class="value-item-new">ELABORACIÓN ARTESANAL</div>
+          <div class="value-sep">·</div>
+          <div class="value-item-new">ENCARGOS PERSONALIZADOS</div>
+          <div class="value-sep">·</div>
+          <div class="value-item-new">DETALLES QUE MARCAN LA DIFERENCIA</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8.3. Introducción Editorial -->
+    <section class="section editorial-intro-section" style="background-color: var(--color-bg-crema); padding-top: clamp(6rem, 10vh, 10rem); padding-bottom: clamp(6rem, 10vh, 10rem);" aria-label="Nuestra esencia">
+      <div class="container" style="max-width: 800px; text-align: center;">
+        <div class="scroll-reveal">
+          <span class="section-subtitle">LE CANELE</span>
+          <h2 class="editorial-title-centered" style="font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.25; margin: 20px 0 30px 0; font-weight: 400; color: var(--color-text-main);">
+            Pastelería artesanal<br>pensada para disfrutar,<br>compartir y celebrar
+          </h2>
+          <p class="editorial-text-centered" style="font-size: clamp(1.05rem, 1.5vw, 1.25rem); color: var(--color-text-muted); max-width: 650px; margin: 0 auto 40px auto; line-height: 1.75;">
+            Cada elaboración nace del cuidado por los pequeños detalles. Creamos propuestas dulces con una presentación delicada y una atención especial a cada encargo.
+          </p>
+          <a href="sobre-nosotros.html" class="view-all-link" style="font-size: 0.85rem; letter-spacing: 0.12em;">DESCUBRIR NUESTRA ESENCIA</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8.4. Catálogo Rápido (Nuestras Creaciones) -->
+    <section class="section creaciones-showcase-section" style="background-color: var(--color-bg-base); padding-top: clamp(5rem, 8vw, 8rem); padding-bottom: clamp(5rem, 8vw, 8rem);" id="creaciones" aria-label="Nuestras creaciones destacados">
+      <div class="container">
+        
+        <!-- Cabecera de la sección alineada horizontalmente (Título e Ir a la tienda) -->
+        <div class="showcase-header scroll-reveal">
+          <h2 class="showcase-section-title">NUESTRAS CREACIONES</h2>
+          <a href="productos.html" class="showcase-view-all-link">VER TODO &rarr;</a>
+        </div>
+        
+        <!-- Contenedor dinámico de productos (inyectado desde JS) -->
+        <div class="products-showcase-grid" id="products-showcase-container">
+          <!-- Inyectado por JS -->
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- 8.6. Bloque Editorial de Tartas Personalizadas -->
+    <section class="section editorial-section-new" style="background-color: var(--color-bg-base); padding-top: clamp(6rem, 8vw, 8rem); padding-bottom: clamp(6rem, 8vw, 8rem);" aria-label="Tartas personalizadas a medida">
+      <div class="container cakes-teaser-grid">
+        <div class="cakes-teaser-content scroll-reveal">
+          <span class="section-subtitle">PARA CELEBRAR</span>
+          <h2 class="cakes-teaser-title" style="font-size: clamp(2rem, 3.5vw, 2.85rem); font-weight: 400; line-height: 1.25; margin: 15px 0 20px 0; color: var(--color-text-main);">Una tarta pensada<br>para tu momento</h2>
+          <p class="cakes-teaser-text" style="color: var(--color-text-muted); line-height: 1.7; margin-bottom: 25px;">Cuéntanos qué tienes en mente y te ayudaremos a preparar una propuesta especial para compartir, regalar o celebrar.</p>
+          <div style="display: flex; gap: 15px; margin-top: 30px;" class="cta-banner-buttons">
+            <a href="tartas-personalizadas.html" class="btn btn-primary">DISEÑA TU TARTA A MEDIDA</a>
+            <a href="https://wa.me/600000000?text=Hola,%20me%20gustaría%20solicitar%20información%20para%20un%20encargo." id="cakes-whatsapp-link" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">CONTACTAR POR WHATSAPP</a>
+          </div>
+        </div>
+        <div class="cakes-teaser-image-wrapper scroll-reveal reveal-mask">
+          <img src="images/tarta_celebracion_dark.webp" alt="Tarta sofisticada Le Canele" class="cakes-teaser-image" loading="lazy" style="border-radius: 2px;">
+        </div>
+      </div>
+    </section>
+
+    <!-- 8.7. Sección Sticky Proceso Artesanal "Hecho con Detalle" -->
+    <section class="section process-sticky-section" style="background-color: var(--color-bg-crema); padding-top: clamp(6rem, 8vw, 8rem); padding-bottom: clamp(6rem, 8vw, 8rem);" aria-label="Proceso artesanal">
+      <div class="container process-sticky-wrapper">
+        <!-- Columna Izquierda Sticky -->
+        <div class="process-sticky-left">
+          <div class="sticky-text-block">
+            <span class="section-subtitle">HECHO CON DETALLE</span>
+            <h2 class="editorial-title" style="text-align: left; margin-bottom: 20px;">Cada creación comienza mucho antes del primer bocado</h2>
+            
+            <!-- Listado de pasos interactivos -->
+            <div class="process-steps-list">
+              <div class="process-step-nav active" data-step="1">
+                <span class="step-num">01</span>
+                <div class="step-content-text">
+                  <h3 class="step-title">El amasado y reposo lento</h3>
+                  <p class="step-desc">La paciencia y el respeto por los tiempos tradicionales. Nuestras masas reposan a temperatura controlada para desarrollar su aroma y textura.</p>
+                </div>
+              </div>
+              
+              <div class="process-step-nav" data-step="2">
+                <span class="step-num">02</span>
+                <div class="step-content-text">
+                  <h3 class="step-title">El esmero en los acabados</h3>
+                  <p class="step-desc">Decoramos cada pieza a mano en nuestro atelier. Cuidamos cada detalle visual, desde los pétalos de flores hasta las finas capas de chocolate de autor.</p>
+                </div>
+              </div>
+              
+              <div class="process-step-nav" data-step="3">
+                <span class="step-num">03</span>
+                <div class="step-content-text">
+                  <h3 class="step-title">La presentación final</h3>
+                  <p class="step-desc">Presentamos cada creación en un empaque sofisticado listo para regalar, disfrutar y convertir cualquier ocasión en un recuerdo especial.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="process-progress-indicator">
+              <div class="progress-bar-fill" id="process-progress-bar"></div>
+            </div>
+            <div class="editorial-signature" style="margin-top: 30px;">Le Canele Atelier</div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha de Fotos -->
+        <div class="process-sticky-right">
+          <div class="process-image-item scroll-reveal reveal-mask" data-step="1">
+            <img src="images/obrador_artesanal_bw.webp" alt="Trabajo manual en el obrador de Le Canele" loading="lazy">
+            <span class="image-caption">01 / El reposo y amasado tradicional</span>
+          </div>
+          <div class="process-image-item scroll-reveal reveal-mask" data-step="2">
+            <img src="images/elaboracion_detalle_dark.webp" alt="Decoración detallada de pasteles" loading="lazy">
+            <span class="image-caption">02 / El esmero en los acabados</span>
+          </div>
+          <div class="process-image-item scroll-reveal reveal-mask" data-step="3">
+            <img src="images/tartas_individuales_land.webp" alt="Presentación final de repostería artesanal" loading="lazy">
+            <span class="image-caption">03 / La presentación final en mesa</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 8.9. Testimonios Preparados para el Futuro -->
+    <section class="section" id="testimonials-section" style="background-color: var(--color-bg-vainilla); display: none;" aria-label="Opiniones de clientes">
+      <div class="container">
+        <div class="section-title-wrapper scroll-reveal">
+          <span class="section-subtitle">Testimonios</span>
+          <h2>Lo que dicen de Le Canele</h2>
+        </div>
+        <div class="faq-list" id="testimonials-container">
+          <!-- Inyectado dinámicamente si se añaden datos reales -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 8.10. Llamada a la Acción Final (Hablemos) -->
+    <section class="section cta-banner-section cta-banner-section-new" style="background-color: var(--color-brand-coral); border-top: none; border-bottom: none; position: relative; overflow: hidden;" aria-label="Comenzar un encargo">
+      <!-- Marca de agua decorativa del logo ondulado en el fondo CSS -->
+      <div class="cta-watermark" aria-hidden="true"></div>
+      
+      <div class="container cta-banner-content scroll-reveal" style="position: relative; z-index: 2;">
+        <span class="section-subtitle" style="color: var(--color-bg-base);">HABLEMOS</span>
+        <h2 class="cta-banner-title" style="color: var(--color-white); text-align: center;">Hay momentos que merecen<br>algo hecho con detalle</h2>
+        <p class="cta-banner-text" style="color: var(--color-bg-base);">Cuéntanos qué tienes en mente. Estaremos encantados de ayudarte a preparar una propuesta especial.</p>
+        <div class="cta-banner-buttons">
+          <a href="https://wa.me/600000000?text=Hola,%20me%20gustaría%20solicitar%20información%20para%20un%20encargo." id="cta-whatsapp-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background-color: var(--color-accent-burdeos);">CONTACTAR POR WHATSAPP</a>
+          <a href="contacto.html" class="btn btn-secondary" style="color: var(--color-white); border-color: var(--color-white); background-color: transparent;">ENVIAR UNA CONSULTA</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Marcador de Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Datos Estructurados Schema.org JSON-LD para SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "Le Canele",
+      "image": "[AÑADIR URL PÚBLICA]/images/logo-le-canele.png",
+      "@id": "[AÑADIR URL PÚBLICA]/#bakery",
+      "url": "[AÑADIR URL PÚBLICA]",
+      "telephone": "[AÑADIR TELÉFONO]",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "[AÑADIR DIRECCIÓN]",
+        "addressLocality": "[AÑADIR CIUDAD]",
+        "postalCode": "[AÑADIR CÓDIGO POSTAL]",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.416775,
+        "longitude": -3.703790
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      "sameAs": [
+        "https://instagram.com/[AÑADIR INSTAGRAM]"
+      ]
+    }
+  </script>
+
+  <!-- Inicialización de Enlaces de WhatsApp -->
+  <script type="module">
+    import { businessConfig } from './src/config/business.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const ctaWa = document.getElementById('cta-whatsapp-link');
+      if (ctaWa) {
+        const isPlaceholder = businessConfig.whatsapp.includes('[AÑADIR');
+        const phone = isPlaceholder ? '600000000' : businessConfig.whatsapp.replace(/\+/g, '').replace(/\s/g, '');
+        const message = encodeURIComponent(businessConfig.whatsappInitialMessage);
+        ctaWa.href = `https://wa.me/${phone}?text=${message}`;
+      }
+    });
+  </script>
+
+  <!-- Modal de Vista Rápida Premium (Boutique Quick View) -->
+  <div id="quickview-modal" class="quickview-modal" role="dialog" aria-modal="true" aria-label="Detalles del producto">
+    <div class="quickview-overlay"></div>
+    <div class="quickview-container">
+      <button class="quickview-close" id="quickview-close" aria-label="Cerrar modal">&times;</button>
+      <div class="quickview-grid">
+        <div class="quickview-media">
+          <img src="" alt="" id="quickview-img" class="quickview-img">
+        </div>
+        <div class="quickview-details">
+          <span class="quickview-category-label" id="quickview-category">Categoría</span>
+          <h2 class="quickview-title" id="quickview-title">Nombre del Producto</h2>
+          <div class="quickview-meta-row">
+            <span class="quickview-price" id="quickview-price">0,00 €</span>
+            <span class="quickview-spec" id="quickview-spec">Especificación</span>
+          </div>
+          <p class="quickview-description" id="quickview-desc">Descripción del producto</p>
+          
+          <div class="quickview-divider"></div>
+          
+          <div class="quickview-section">
+            <h4 class="quickview-section-title">Ingredientes Nobles</h4>
+            <p class="quickview-text" id="quickview-ingredients">Harina de almendra fina, azúcar glass, claras de huevo, vainilla natural.</p>
+          </div>
+          
+          <div class="quickview-section">
+            <h4 class="quickview-section-title">Alérgenos</h4>
+            <div class="quickview-allergens" id="quickview-allergens">
+              <!-- Rellenado dinámicamente con iconos -->
+            </div>
+          </div>
+          
+          <div class="quickview-section note-section">
+            <h4 class="quickview-section-title">Nota del Obrador</h4>
+            <p class="quickview-text italic" id="quickview-note">Elaborado artesanalmente siguiendo los procesos de la repostería clásica francesa.</p>
+          </div>
+          
+          <div class="quickview-actions">
+            <a href="" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="quickview-btn-delivery">Encargar a Domicilio</a>
+            <a href="" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="quickview-btn-collect">Recoger en Obrador</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- Carrito Lateral (Cart Drawer) -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+    <div class="cart-header">
+      <h2 class="cart-title" id="cart-title">Tu Cesta Gourmet</h2>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Cerrar cesta">&times;</button>
+    </div>
+    
+    <div class="cart-body">
+      <div class="cart-empty-message" id="cart-empty-message">
+        <span class="cart-empty-icon">🛒</span>
+        <p>Tu cesta está vacía</p>
+        <a href="productos.html" class="btn btn-secondary btn-sm" style="margin-top: 15px;">Explorar creaciones</a>
+      </div>
+      <div class="cart-items-list" id="cart-items-list">
+        <!-- Inyectado por JS -->
+      </div>
+    </div>
+    
+    <div class="cart-footer">
+      <div class="cart-delivery-selector">
+        <span class="selector-title">Modalidad de entrega:</span>
+        <div class="delivery-options">
+          <label class="delivery-option">
+            <input type="radio" name="cart-delivery" value="collect" checked>
+            <span class="option-custom-radio"></span>
+            <span class="option-text">Recoger en Obrador (Gratis)</span>
+          </label>
+          <label class="delivery-option">
+            <input type="radio" name="cart-delivery" value="delivery">
+            <span class="option-custom-radio"></span>
+            <span class="option-text">Envío a Domicilio (+5,00 €)</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="cart-summary-row">
+        <span>Subtotal:</span>
+        <span id="cart-subtotal-val">0,00 €</span>
+      </div>
+      <div class="cart-summary-row" id="cart-shipping-row" style="display: none;">
+        <span>Envío a domicilio:</span>
+        <span>5,00 €</span>
+      </div>
+      <div class="cart-summary-row total-row">
+        <span>Total Estimado:</span>
+        <span id="cart-total-val">0,00 €</span>
+      </div>
+      
+      <button class="btn btn-primary btn-cart-checkout" id="cart-checkout-btn">
+        REALIZAR ENCARGO POR WHATSAPP
+      </button>
+    </div>
+  </div>
+
+  <script type="module" src="src/components/header.js"></script>
+  <script type="module" src="src/components/footer.js"></script>
+  <script type="module" src="src/components/whatsapp.js"></script>
+  <script type="module" src="src/components/cookies.js"></script>
+  <script type="module" src="src/js/app.js"></script>
+</body>
+</html>

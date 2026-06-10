@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js-enabled');</script>
+  
+  <!-- SEO Técnico -->
+  <title>Creaciones | Le Canele Pastelería Artesanal</title>
+  <meta name="description" content="Explora el catálogo refinado de Le Canele: macarons crujientes, pasteles individuales de diseño y tartas personalizadas.">
+  <link rel="canonical" href="[AÑADIR URL PÚBLICA]/productos.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Colección Dulce y Catálogo | Le Canele">
+  <meta property="og:description" content="Explora nuestra selección artesanal de repostería de autor: macarons, pasteles individuales y tartas personalizadas.">
+  <meta property="og:image" content="images/brand/logo-le-canele-transparent.png">
+  <meta property="og:url" content="[AÑADIR URL PÚBLICA]/productos.html">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="src/styles/style.css">
+  
+  <!-- Favicon Oficial -->
+  <link rel="icon" type="image/png" href="images/brand/favicon-le-canele.png">
+</head>
+<body>
+
+  <!-- Marcador de Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Contenido Principal -->
+  <main id="main-content">
+    
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Ruta de navegación" style="background-color: var(--color-bg-base);">
+      <div class="container">
+        <ul class="breadcrumbs-list">
+          <li class="breadcrumbs-item"><a href="index.html">Inicio</a></li>
+          <li class="breadcrumbs-item active">Productos</li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Catálogo de Productos -->
+    <section class="section" style="padding-top: clamp(6rem, 10vh, 10rem); background-color: var(--color-bg-base);">
+
+      <div class="container">
+        
+        <!-- Cabecera Editorial Boutique -->
+        <div class="catalog-intro fade-in-up active">
+          <span class="section-subtitle">El Catálogo</span>
+          <h1>Nuestras Creaciones</h1>
+          <p style="margin-top: 20px; max-width: 650px; margin-left: auto; margin-right: auto; color: var(--color-text-muted); line-height: 1.7;">Cada pieza es elaborada diariamente en nuestro obrador con técnicas tradicionales y un diseño sofisticado, pensada para celebrar momentos especiales.</p>
+        </div>
+
+        <!-- Filtros Dinámicos (Pestañas Minimalistas) -->
+        <div class="catalog-filters fade-in-up active" id="filters-container" role="tablist" aria-label="Filtrar productos por categoría">
+          <!-- Se inyectarán dinámicamente -->
+        </div>
+
+        <!-- Rejilla de Productos (Estilo Boutique) -->
+        <div class="favorites-grid fade-in-up active" id="catalog-grid" style="margin-bottom: 80px;">
+          <!-- Tarjetas de producto inyectadas -->
+          
+          <!-- Contenedor vacío (No hay resultados) -->
+          <div class="catalog-no-results" id="no-results-msg" style="display: none; text-align: center; padding: 40px 0;">
+            <h3 class="form-serif" style="font-size: 1.5rem; color: var(--color-text-main);">No se han encontrado creaciones</h3>
+            <p style="margin-top: 10px; color: var(--color-text-muted);">Actualmente no disponemos de productos en esta categoría. Por favor, selecciona otro filtro o contáctanos.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section cta-banner-section cta-banner-section-new" style="background-color: var(--color-brand-coral); border-top: none; border-bottom: none; position: relative; overflow: hidden;" aria-label="Comenzar un encargo">
+      <div class="cta-watermark" aria-hidden="true"></div>
+      <div class="container cta-banner-content scroll-reveal" style="position: relative; z-index: 2;">
+        <span class="section-subtitle" style="color: var(--color-bg-base);">HABLEMOS</span>
+        <h2 class="cta-banner-title" style="color: var(--color-white); text-align: center;">Hay momentos que merecen<br>algo hecho con detalle</h2>
+        <p class="cta-banner-text" style="color: var(--color-bg-base);">Cuéntanos qué tienes en mente. Estaremos encantados de ayudarte a preparar una propuesta especial.</p>
+        <div class="cta-banner-buttons">
+          <a href="https://wa.me/600000000?text=Hola,%20me%20gustaría%20solicitar%20información%20para%20un%20encargo." id="cta-whatsapp-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background-color: var(--color-accent-burdeos);">CONTACTAR POR WHATSAPP</a>
+          <a href="contacto.html" class="btn btn-secondary" style="color: var(--color-white); border-color: var(--color-white); background-color: transparent;">ENVIAR UNA CONSULTA</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Marcador de Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Datos Estructurados Schema.org JSON-LD para Productos y Breadcrumbs -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "[AÑADIR URL PÚBLICA]/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Productos",
+        "item": "[AÑADIR URL PÚBLICA]/productos.html"
+      }]
+    }
+  </script>
+
+  <!-- Lógica Dinámica del Catálogo con ES Modules -->
+  <script type="module">
+    import { productsData, categoriesData } from './src/data/products.js';
+    import { businessConfig } from './src/config/business.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initCatalog();
+    });
+
+    function initCatalog() {
+      const filtersContainer = document.getElementById('filters-container');
+      const catalogGrid = document.getElementById('catalog-grid');
+      const noResultsMsg = document.getElementById('no-results-msg');
+
+      if (!filtersContainer || !catalogGrid) return;
+
+      // Calcular conteos de cada categoría
+      const getCount = (catId) => {
+        if (catId === 'all') return productsData.length;
+        return productsData.filter(p => p.category === catId).length;
+      };
+
+      // 1. Renderizar Filtros con conteo dinámico
+      categoriesData.forEach((cat, idx) => {
+        const btn = document.createElement('button');
+        btn.className = `filter-btn ${idx === 0 ? 'active' : ''}`;
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+        btn.setAttribute('aria-controls', 'catalog-grid');
+        btn.dataset.category = cat.id;
+        btn.innerHTML = `${cat.name} <span class="filter-count">(${getCount(cat.id)})</span>`;
+        
+        btn.addEventListener('click', (e) => {
+          filtersContainer.querySelectorAll('.filter-btn').forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          filterProducts(cat.id);
+        });
+
+        filtersContainer.appendChild(btn);
+      });
+
+      // 2. Comprobar si hay categoría en el Query String
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('cat');
+      
+      let activeCategory = 'all';
+      if (catParam && categoriesData.some(c => c.id === catParam)) {
+        activeCategory = catParam;
+        
+        setTimeout(() => {
+          filtersContainer.querySelectorAll('.filter-btn').forEach(btn => {
+            if (btn.dataset.category === activeCategory) {
+              btn.click();
+            }
+          });
+        }, 50);
+      }
+
+      // 3. Renderizar todos los productos inicialmente
+      renderProducts(productsData);
+
+      function renderProducts(products) {
+        const cards = catalogGrid.querySelectorAll('.favorite-card');
+        cards.forEach(card => card.remove());
+
+        if (products.length === 0) {
+          noResultsMsg.style.display = 'block';
+          return;
+        }
+        noResultsMsg.style.display = 'none';
+
+        const isPlaceholder = businessConfig.whatsapp.includes('[AÑADIR');
+        const phone = isPlaceholder ? '600000000' : businessConfig.whatsapp.replace(/\+/g, '').replace(/\s/g, '');
+
+        products.forEach(prod => {
+          const price = prod.price || 'Consultar';
+          const spec = prod.spec || '';
+
+          // Condicional de botones: Tartas redirigen a formulario, otros a la Cesta Gourmet
+          let actionsHtml = '';
+          if (prod.category === 'tartas') {
+            actionsHtml = `
+              <a href="tartas-personalizadas.html" class="btn-favorite-action solid" aria-label="Diseñar tarta ${prod.name} personalizada">Diseñar a Medida</a>
+            `;
+          } else {
+            actionsHtml = `
+              <button class="btn-favorite-action solid btn-add-to-cart-action" data-product-id="${prod.id}" aria-label="Añadir ${prod.name} a la cesta">Añadir a la Cesta</button>
+            `;
+          }
+
+          const article = document.createElement('article');
+          article.className = 'favorite-card catalog-item-wrapper';
+          article.setAttribute('data-product-id', prod.id);
+          article.innerHTML = `
+            <div class="favorite-card-img-wrapper">
+              <img src="${prod.image}" alt="${prod.alt || prod.name}" class="favorite-card-img" loading="lazy">
+            </div>
+            <div class="favorite-card-body">
+              <div class="favorite-card-info-row">
+                <h3 class="favorite-card-title">${prod.name}</h3>
+                <span class="favorite-card-spec">${spec}</span>
+              </div>
+              <div class="favorite-card-price-row">
+                <span class="favorite-card-price">${price}</span>
+              </div>
+              <p class="favorite-card-desc">${prod.description}</p>
+              <div class="favorite-card-actions">
+                ${actionsHtml}
+              </div>
+            </div>
+          `;
+          catalogGrid.appendChild(article);
+        });
+      }
+
+      function filterProducts(categoryId) {
+        catalogGrid.style.opacity = '0.3';
+        catalogGrid.style.transform = 'translateY(10px)';
+        catalogGrid.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+        
+        setTimeout(() => {
+          const filtered = categoryId === 'all' 
+            ? productsData 
+            : productsData.filter(p => p.category === categoryId);
+          
+          renderProducts(filtered);
+          
+          catalogGrid.style.opacity = '1';
+          catalogGrid.style.transform = 'translateY(0)';
+        }, 250);
+      }
+    }
+  </script>
+
+  <!-- Modal de Vista Rápida Premium (Boutique Quick View) -->
+  <div id="quickview-modal" class="quickview-modal" role="dialog" aria-modal="true" aria-label="Detalles del producto">
+    <div class="quickview-overlay"></div>
+    <div class="quickview-container">
+      <button class="quickview-close" id="quickview-close" aria-label="Cerrar modal">&times;</button>
+      <div class="quickview-grid">
+        <div class="quickview-media">
+          <img src="" alt="" id="quickview-img" class="quickview-img">
+        </div>
+        <div class="quickview-details">
+          <span class="quickview-category-label" id="quickview-category">Categoría</span>
+          <h2 class="quickview-title" id="quickview-title">Nombre del Producto</h2>
+          <div class="quickview-meta-row">
+            <span class="quickview-price" id="quickview-price">0,00 €</span>
+            <span class="quickview-spec" id="quickview-spec">Especificación</span>
+          </div>
+          <p class="quickview-description" id="quickview-desc">Descripción del producto</p>
+          
+          <div class="quickview-divider"></div>
+          
+          <div class="quickview-section">
+            <h4 class="quickview-section-title">Ingredientes Nobles</h4>
+            <p class="quickview-text" id="quickview-ingredients">Harina de almendra fina, azúcar glass, claras de huevo, vainilla natural.</p>
+          </div>
+          
+          <div class="quickview-section">
+            <h4 class="quickview-section-title">Alérgenos</h4>
+            <div class="quickview-allergens" id="quickview-allergens">
+              <!-- Rellenado dinámicamente con iconos -->
+            </div>
+          </div>
+          
+          <div class="quickview-section note-section">
+            <h4 class="quickview-section-title">Nota del Obrador</h4>
+            <p class="quickview-text italic" id="quickview-note">Elaborado artesanalmente siguiendo los procesos de la repostería clásica francesa.</p>
+          </div>
+          
+          <div class="quickview-actions">
+            <a href="" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="quickview-btn-delivery">Encargar a Domicilio</a>
+            <a href="" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="quickview-btn-collect">Recoger en Obrador</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- Carrito Lateral (Cart Drawer) -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+    <div class="cart-header">
+      <h2 class="cart-title" id="cart-title">Tu Cesta Gourmet</h2>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Cerrar cesta">&times;</button>
+    </div>
+    
+    <div class="cart-body">
+      <div class="cart-empty-message" id="cart-empty-message">
+        <span class="cart-empty-icon">🛒</span>
+        <p>Tu cesta está vacía</p>
+        <a href="productos.html" class="btn btn-secondary btn-sm" style="margin-top: 15px;">Explorar creaciones</a>
+      </div>
+      <div class="cart-items-list" id="cart-items-list">
+        <!-- Inyectado por JS -->
+      </div>
+    </div>
+    
+    <div class="cart-footer">
+      <div class="cart-delivery-selector">
+        <span class="selector-title">Modalidad de entrega:</span>
+        <div class="delivery-options">
+          <label class="delivery-option">
+            <input type="radio" name="cart-delivery" value="collect" checked>
+            <span class="option-custom-radio"></span>
+            <span class="option-text">Recoger en Obrador (Gratis)</span>
+          </label>
+          <label class="delivery-option">
+            <input type="radio" name="cart-delivery" value="delivery">
+            <span class="option-custom-radio"></span>
+            <span class="option-text">Envío a Domicilio (+5,00 €)</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="cart-summary-row">
+        <span>Subtotal:</span>
+        <span id="cart-subtotal-val">0,00 €</span>
+      </div>
+      <div class="cart-summary-row" id="cart-shipping-row" style="display: none;">
+        <span>Envío a domicilio:</span>
+        <span>5,00 €</span>
+      </div>
+      <div class="cart-summary-row total-row">
+        <span>Total Estimado:</span>
+        <span id="cart-total-val">0,00 €</span>
+      </div>
+      
+      <button class="btn btn-primary btn-cart-checkout" id="cart-checkout-btn">
+        REALIZAR ENCARGO POR WHATSAPP
+      </button>
+    </div>
+  </div>
+
+  <script type="module" src="src/components/header.js"></script>
+  <script type="module" src="src/components/footer.js"></script>
+  <script type="module" src="src/components/whatsapp.js"></script>
+  <script type="module" src="src/components/cookies.js"></script>
+  <script type="module" src="src/js/app.js"></script>
+</body>
+</html>
