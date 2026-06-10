@@ -4108,7 +4108,9 @@ body.modal-open {
   }
   
   .hero-video-frame {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 5;
+    max-width: 380px;
+    margin: 0 auto;
   }
   
   .hero-title-new {
