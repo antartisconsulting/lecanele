@@ -1,5 +1,5 @@
 import { businessConfig } from '../config/business.js';
-import { productsData } from '../data/products.js';
+import { productsData } from '../data/products.js?v=3';
 import { testimonialsData } from '../data/testimonials.js';
 
 /**
@@ -528,19 +528,11 @@ function initProductsShowcase() {
   const showcaseProducts = productsData.slice(0, 4);
 
   showcaseProducts.forEach(prod => {
-    const price = prod.price || 'Consultar';
     const spec = prod.spec || '';
 
-    let actionsHtml = '';
-    if (prod.category === 'tartas') {
-      actionsHtml = `
-        <a href="tartas-personalizadas.html" class="btn-showcase-action solid" aria-label="Diseñar tarta ${prod.name} personalizada">Diseñar a Medida</a>
-      `;
-    } else {
-      actionsHtml = `
-        <button class="btn-showcase-action solid btn-add-to-cart-action" data-product-id="${prod.id}" aria-label="Añadir ${prod.name} a la cesta">Añadir a la Cesta</button>
-      `;
-    }
+    const actionsHtml = `
+      <span class="btn-showcase-action solid disabled" style="background-color: var(--color-text-light); border-color: var(--color-text-light); color: var(--color-white); cursor: default; width: 100%; text-align: center;">Pedidos Online Próximamente</span>
+    `;
 
     const card = document.createElement('article');
     card.className = 'product-showcase-card scroll-reveal';
@@ -548,13 +540,11 @@ function initProductsShowcase() {
     card.innerHTML = `
       <div class="product-showcase-img-wrapper">
         <img src="${prod.image}" alt="${prod.alt || prod.name}" class="product-showcase-img" loading="lazy">
+        <div class="product-upcoming-badge">Próximamente</div>
       </div>
       <div class="product-showcase-info-row">
         <h3 class="product-showcase-card-title">${prod.name}</h3>
         <span class="product-showcase-spec">${spec}</span>
-      </div>
-      <div class="product-showcase-price-row">
-        <span class="product-showcase-price">${price}</span>
       </div>
       <div class="product-showcase-actions">
         ${actionsHtml}
@@ -699,7 +689,8 @@ function initQuickView() {
     img.alt = prod.alt || prod.name;
     category.textContent = prod.category.replace('-', ' ').toUpperCase();
     title.textContent = prod.name;
-    price.textContent = prod.price || 'Consultar';
+    price.textContent = '';
+    price.style.display = 'none';
     spec.textContent = prod.spec || '';
     desc.textContent = prod.description;
     
@@ -719,31 +710,22 @@ function initQuickView() {
       allergensContainer.innerHTML = '<span class="allergen-pill clean">Libre de alérgenos comunes</span>';
     }
 
-    if (prod.category === 'tartas') {
-      btnDelivery.textContent = 'Diseñar a Medida';
-      btnDelivery.href = 'tartas-personalizadas.html';
-      btnDelivery.removeAttribute('target');
-      btnDelivery.removeAttribute('rel');
-      btnDelivery.classList.remove('btn-add-to-cart-action');
-      btnDelivery.removeAttribute('data-product-id');
-      
-      btnCollect.textContent = 'Cerrar';
-      btnCollect.href = '#';
-      btnCollect.removeAttribute('target');
-      btnCollect.removeAttribute('rel');
-    } else {
-      btnDelivery.textContent = 'Añadir a la Cesta';
-      btnDelivery.href = '#';
-      btnDelivery.removeAttribute('target');
-      btnDelivery.removeAttribute('rel');
-      btnDelivery.classList.add('btn-add-to-cart-action');
-      btnDelivery.setAttribute('data-product-id', prod.id);
-      
-      btnCollect.textContent = 'Cerrar';
-      btnCollect.href = '#';
-      btnCollect.removeAttribute('target');
-      btnCollect.removeAttribute('rel');
-    }
+    // Configurar acciones del modal (sólo botón deshabilitado de pedidos próximamente)
+    btnDelivery.textContent = 'Pedidos Online Próximamente';
+    btnDelivery.href = '#';
+    btnDelivery.removeAttribute('target');
+    btnDelivery.removeAttribute('rel');
+    btnDelivery.classList.remove('btn-add-to-cart-action');
+    btnDelivery.removeAttribute('data-product-id');
+    btnDelivery.style.pointerEvents = 'none';
+    btnDelivery.style.backgroundColor = 'var(--color-text-light)';
+    btnDelivery.style.borderColor = 'var(--color-text-light)';
+    btnDelivery.style.color = 'var(--color-white)';
+    
+    btnCollect.textContent = 'Cerrar';
+    btnCollect.href = '#';
+    btnCollect.removeAttribute('target');
+    btnCollect.removeAttribute('rel');
 
     modal.classList.add('open');
     document.body.classList.add('modal-open');

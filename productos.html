@@ -50,7 +50,7 @@
         <div class="catalog-intro fade-in-up active">
           <span class="section-subtitle">El Catálogo</span>
           <h1>Nuestras Creaciones</h1>
-          <p style="margin-top: 20px; max-width: 650px; margin-left: auto; margin-right: auto; color: var(--color-text-muted); line-height: 1.7;">Cada pieza es elaborada diariamente en nuestro obrador con técnicas tradicionales y un diseño sofisticado, pensada para celebrar momentos especiales.</p>
+          <p style="margin-top: 20px; max-width: 650px; margin-left: auto; margin-right: auto; color: var(--color-text-muted); line-height: 1.7;">Cada pieza es elaborada diariamente en nuestro obrador con técnicas tradicionales y un diseño sofisticado. <strong style="color: var(--color-brand-coral);">Próximamente abriremos los pedidos online.</strong></p>
         </div>
 
         <!-- Filtros Dinámicos (Pestañas Minimalistas) -->
@@ -112,7 +112,7 @@
 
   <!-- Lógica Dinámica del Catálogo con ES Modules -->
   <script type="module">
-    import { productsData, categoriesData } from './src/data/products.js';
+    import { productsData, categoriesData } from './src/data/products.js?v=3';
     import { businessConfig } from './src/config/business.js';
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -189,20 +189,11 @@
         const phone = isPlaceholder ? '600000000' : businessConfig.whatsapp.replace(/\+/g, '').replace(/\s/g, '');
 
         products.forEach(prod => {
-          const price = prod.price || 'Consultar';
           const spec = prod.spec || '';
 
-          // Condicional de botones: Tartas redirigen a formulario, otros a la Cesta Gourmet
-          let actionsHtml = '';
-          if (prod.category === 'tartas') {
-            actionsHtml = `
-              <a href="tartas-personalizadas.html" class="btn-favorite-action solid" aria-label="Diseñar tarta ${prod.name} personalizada">Diseñar a Medida</a>
-            `;
-          } else {
-            actionsHtml = `
-              <button class="btn-favorite-action solid btn-add-to-cart-action" data-product-id="${prod.id}" aria-label="Añadir ${prod.name} a la cesta">Añadir a la Cesta</button>
-            `;
-          }
+          const actionsHtml = `
+            <span class="btn-favorite-action solid disabled" style="background-color: var(--color-text-light); border-color: var(--color-text-light); color: var(--color-white); cursor: default; width: 100%; text-align: center; font-size: 0.7rem;">Pedidos Online Próximamente</span>
+          `;
 
           const article = document.createElement('article');
           article.className = 'favorite-card catalog-item-wrapper';
@@ -210,14 +201,12 @@
           article.innerHTML = `
             <div class="favorite-card-img-wrapper">
               <img src="${prod.image}" alt="${prod.alt || prod.name}" class="favorite-card-img" loading="lazy">
+              <div class="product-upcoming-badge">Próximamente</div>
             </div>
             <div class="favorite-card-body">
               <div class="favorite-card-info-row">
                 <h3 class="favorite-card-title">${prod.name}</h3>
                 <span class="favorite-card-spec">${spec}</span>
-              </div>
-              <div class="favorite-card-price-row">
-                <span class="favorite-card-price">${price}</span>
               </div>
               <p class="favorite-card-desc">${prod.description}</p>
               <div class="favorite-card-actions">
@@ -351,6 +340,6 @@
   <script type="module" src="src/components/footer.js"></script>
   <script type="module" src="src/components/whatsapp.js"></script>
   <script type="module" src="src/components/cookies.js"></script>
-  <script type="module" src="src/js/app.js"></script>
+  <script type="module" src="src/js/app.js?v=3"></script>
 </body>
 </html>

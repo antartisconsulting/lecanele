@@ -122,8 +122,11 @@
       <div class="container">
         
         <!-- Cabecera de la sección alineada horizontalmente (Título e Ir a la tienda) -->
-        <div class="showcase-header scroll-reveal">
-          <h2 class="showcase-section-title">NUESTRAS CREACIONES</h2>
+        <div class="showcase-header scroll-reveal" style="flex-wrap: wrap; align-items: flex-end;">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <h2 class="showcase-section-title" style="margin: 0;">NUESTRAS CREACIONES</h2>
+            <span style="color: var(--color-brand-coral); font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Próximamente abriremos los pedidos online</span>
+          </div>
           <a href="productos.html" class="showcase-view-all-link">VER TODO &rarr;</a>
         </div>
         
@@ -216,18 +219,7 @@
     </section>
 
 
-    <!-- 8.9. Testimonios Preparados para el Futuro -->
-    <section class="section" id="testimonials-section" style="background-color: var(--color-bg-vainilla); display: none;" aria-label="Opiniones de clientes">
-      <div class="container">
-        <div class="section-title-wrapper scroll-reveal">
-          <span class="section-subtitle">Testimonios</span>
-          <h2>Lo que dicen de Le Canele</h2>
-        </div>
-        <div class="faq-list" id="testimonials-container">
-          <!-- Inyectado dinámicamente si se añaden datos reales -->
-        </div>
-      </div>
-    </section>
+
 
     <!-- 8.10. Llamada a la Acción Final (Hablemos) -->
     <section class="section cta-banner-section cta-banner-section-new" style="background-color: var(--color-brand-coral); border-top: none; border-bottom: none; position: relative; overflow: hidden;" aria-label="Comenzar un encargo">
@@ -410,6 +402,6 @@
   <script type="module" src="src/components/footer.js"></script>
   <script type="module" src="src/components/whatsapp.js"></script>
   <script type="module" src="src/components/cookies.js"></script>
-  <script type="module" src="src/js/app.js"></script>
+  <script type="module" src="src/js/app.js?v=3"></script>
 </body>
 </html>

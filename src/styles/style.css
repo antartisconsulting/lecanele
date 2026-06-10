@@ -2268,20 +2268,41 @@ textarea.form-control {
   aspect-ratio: 3 / 4;
   overflow: hidden;
   position: relative;
-  background-color: var(--color-bg-crema);
+  background-color: var(--color-bg-vainilla);
   margin-bottom: 18px;
   border-radius: var(--radius-sm);
+  border: 1px solid rgba(44, 27, 24, 0.05);
 }
 
 .product-showcase-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 2.5rem;
   transition: var(--transition-smooth);
 }
 
 .product-showcase-card:hover .product-showcase-img {
-  transform: scale(1.04);
+  transform: scale(1.06);
+}
+
+/* Badge de Próximamente */
+.product-upcoming-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--color-accent-burdeos);
+  color: var(--color-white);
+  padding: 5px 12px;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* Fila de título y metadato */
@@ -2504,20 +2525,22 @@ textarea.form-control {
   aspect-ratio: 3 / 4;
   overflow: hidden;
   position: relative;
-  background-color: var(--color-bg-crema);
+  background-color: var(--color-bg-vainilla);
   border-radius: var(--radius-sm);
   margin-bottom: 18px;
+  border: 1px solid rgba(44, 27, 24, 0.05);
 }
 
 .favorite-card-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 2.5rem;
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .favorite-card:hover .favorite-card-img {
-  transform: scale(1.04);
+  transform: scale(1.06);
 }
 
 /* Contenido de la Tarjeta */
@@ -3373,13 +3396,15 @@ body.nav-open {
 .quickview-media {
   position: relative;
   overflow: hidden;
-  background-color: var(--color-bg-crema);
+  background-color: var(--color-bg-vainilla);
+  border-right: 1px solid rgba(44, 27, 24, 0.05);
 }
 
 .quickview-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 2.5rem;
 }
 
 @media (max-width: 768px) {
@@ -4562,4 +4587,48 @@ body.modal-open {
   #cake-svg {
     max-height: 220px;
   }
+}
+
+/* Formulario Próximamente con Tachado */
+.form-card-upcoming-wrapper {
+  position: relative;
+}
+
+.form-card-upcoming-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.45);
+  backdrop-filter: grayscale(50%) blur(1px);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+}
+
+/* Línea diagonal de tachado */
+.form-card-upcoming-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 49.5%, var(--color-brand-coral) 49.5%, var(--color-brand-coral) 50.5%, transparent 50.5%);
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.form-card-upcoming-badge {
+  background-color: var(--color-accent-burdeos);
+  color: var(--color-white);
+  padding: 14px 35px;
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  pointer-events: none;
+  z-index: 12;
+  transform: rotate(-5deg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }

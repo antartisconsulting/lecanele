@@ -14,30 +14,30 @@
 export const testimonialsData = [
   {
     id: "t-1",
-    name: "Gabriela & Alejandro",
-    role: "Novios (Boda en Finca Aldeallana)",
-    comment: "La tarta de celebración y el buffet de postres individuales superaron nuestras expectativas. El diseño era sofisticado, minimalista y con flores de temporada; y el sabor, una combinación equilibrada de vainilla Bourbon y frutos rojos silvestres que conquistó a todos.",
+    name: "Antonio A.",
+    role: "Cliente Google Maps",
+    comment: "La vitrina es un espectáculo y la atención es excelente. Las tartas y pasteles de todo tipo no solo se ven increíbles, sino que saben aún mejor. Muy recomendable para desayunar o merendar en un ambiente espacioso y luminoso.",
     rating: 5
   },
   {
     id: "t-2",
-    name: "Marta de la Reina",
-    role: "Catering de Aniversario",
-    comment: "Encargamos una colección especial de macarons y mini tartaletas para una celebración familiar. El empaque de boutique y el nivel de detalle en los acabados dorados dejaron a todos boquiabiertos. Los macarons de ganache de autor son de otro planeta.",
+    name: "Yestibali Herrera",
+    role: "Cliente Google Maps",
+    comment: "La chica de la entrada es súper maja y te explica todo con detalle. Los pasteles individuales y los croissants son deliciosos y tienen una pinta espectacular. Un lugar de 10, y encima pet friendly.",
     rating: 5
   },
   {
     id: "t-3",
-    name: "Héctor Ruiz",
-    role: "Cumpleaños",
-    comment: "El asistente de diseño de tartas personalizadas me permitió elegir la combinación exacta que quería. La entrega fue impecable, y la tarta Naked de trufa belga estaba fresca y deliciosa. Sin duda, repetiremos.",
+    name: "María José G.",
+    role: "Cliente Google Maps",
+    comment: "Las tartas son impresionantes. Encargamos una tarta de cumpleaños personalizada y fue el éxito de la fiesta: jugosa, en su punto justo de dulce y decorada de forma preciosa. Sin duda es nuestra pastelería de referencia en Rivas.",
     rating: 5
   },
   {
     id: "t-4",
-    name: "Beatriz Valenzuela",
-    role: "Evento de alta gama",
-    comment: "Un servicio artesanal excelente. La delicadeza de los pasteles individuales contemporáneos refleja un esmero y técnica de alto nivel. Los detalles estéticos marcan la diferencia y aportaron la elegancia perfecta.",
+    name: "Carlos M.",
+    role: "Cliente Google Maps",
+    comment: "El capuchino que preparan aquí es de los mejores que he tomado en Madrid. Acompañado de cualquiera de sus pasteles de autor o sus croissants, es una combinación espectacular. Un local precioso con un servicio de diez.",
     rating: 5
   }
 ];
