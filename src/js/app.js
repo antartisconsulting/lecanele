@@ -340,16 +340,81 @@ function initVideoControl() {
   const controlBtn = document.getElementById('video-control');
   if (!video) return;
 
-  // 1. Cargar el poster responsive según resolución
-  const updatePoster = () => {
-    if (window.innerWidth <= 768) {
-      video.setAttribute('poster', 'images/posters/hero-le-canele-mobile.jpg');
+  let currentMode = null; // 'desktop' o 'mobile'
+
+  // 1. Cargar fuentes del video de forma dinámica según resolución
+  const updateVideoSource = () => {
+    const isMobile = window.innerWidth <= 768;
+    const targetMode = isMobile ? 'mobile' : 'desktop';
+
+    // Evitar recargar si ya está en el modo correcto
+    if (currentMode === targetMode) return;
+    currentMode = targetMode;
+
+    const poster = isMobile 
+      ? 'images/posters/hero-le-canele-mobile.jpg' 
+      : 'images/posters/hero-le-canele-desktop.jpg';
+      
+    const webmSrc = isMobile 
+      ? 'videos/hero-le-canele-mobile.webm' 
+      : 'videos/hero-le-canele-desktop.webm';
+      
+    const mp4Src = isMobile 
+      ? 'videos/hero-le-canele-mobile.mp4' 
+      : 'videos/hero-le-canele-desktop.mp4';
+
+    video.setAttribute('poster', poster);
+
+    // Limpiar y crear los nuevos elementos source
+    video.innerHTML = '';
+    
+    const sourceWebm = document.createElement('source');
+    sourceWebm.src = webmSrc;
+    sourceWebm.type = 'video/webm';
+    
+    const sourceMp4 = document.createElement('source');
+    sourceMp4.src = mp4Src;
+    sourceMp4.type = 'video/mp4';
+    
+    video.appendChild(sourceWebm);
+    video.appendChild(sourceMp4);
+    
+    video.load();
+
+    // Respetar prefers-reduced-motion y reproducir
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (motionQuery.matches) {
+      video.removeAttribute('autoplay');
+      video.pause();
+      if (controlBtn) {
+        controlBtn.textContent = '▶';
+        controlBtn.setAttribute('aria-label', 'Reproducir video');
+      }
     } else {
-      video.setAttribute('poster', 'images/posters/hero-le-canele-desktop.jpg');
+      video.play().then(() => {
+        if (controlBtn) {
+          controlBtn.textContent = '⏸';
+          controlBtn.setAttribute('aria-label', 'Pausar video');
+        }
+      }).catch(() => {
+        // En caso de que el navegador requiera interacción previa del usuario para reproducir
+        if (controlBtn) {
+          controlBtn.textContent = '▶';
+          controlBtn.setAttribute('aria-label', 'Reproducir video');
+        }
+      });
     }
   };
-  updatePoster();
-  window.addEventListener('resize', updatePoster);
+
+  // Inicializar fuentes
+  updateVideoSource();
+
+  // Escuchar cambios de tamaño con un debounce para evitar recargas constantes al arrastrar
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(updateVideoSource, 250);
+  });
 
   // 2. Respetar prefers-reduced-motion (no autoplay)
   const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -362,35 +427,24 @@ function initVideoControl() {
         controlBtn.setAttribute('aria-label', 'Reproducir video');
       }
     } else {
-      // Re-enable autoplay if motion is allowed
-      video.play().catch(() => {});
-      if (controlBtn) {
-        controlBtn.textContent = '⏸';
-        controlBtn.setAttribute('aria-label', 'Pausar video');
-      }
+      video.play().then(() => {
+        if (controlBtn) {
+          controlBtn.textContent = '⏸';
+          controlBtn.setAttribute('aria-label', 'Pausar video');
+        }
+      }).catch(() => {});
     }
   };
-  
-  // Initial check
-  if (motionQuery.matches) {
-    video.removeAttribute('autoplay');
-    video.pause();
-    if (controlBtn) {
-      controlBtn.textContent = '▶';
-      controlBtn.setAttribute('aria-label', 'Reproducir video');
-    }
-  }
-
-  // Listen to changes
   motionQuery.addEventListener('change', handleMotionChange);
 
   // 3. Control manual de pausa/reproducción
   if (controlBtn) {
     controlBtn.addEventListener('click', () => {
       if (video.paused) {
-        video.play();
-        controlBtn.textContent = '⏸';
-        controlBtn.setAttribute('aria-label', 'Pausar video');
+        video.play().then(() => {
+          controlBtn.textContent = '⏸';
+          controlBtn.setAttribute('aria-label', 'Pausar video');
+        }).catch(() => {});
       } else {
         video.pause();
         controlBtn.textContent = '▶';
