@@ -4632,3 +4632,24 @@ body.modal-open {
   transform: rotate(-5deg);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+/* Ajustes de diseño móvil premium (max-width: 576px) */
+@media (max-width: 576px) {
+  .product-showcase-img-wrapper,
+  .favorite-card-img-wrapper {
+    aspect-ratio: 16 / 10 !important;
+  }
+  
+  .product-showcase-img,
+  .favorite-card-img {
+    padding: 1.5rem !important;
+  }
+
+  .product-upcoming-badge {
+    top: 10px !important;
+    right: 10px !important;
+    font-size: 0.6rem !important;
+    padding: 4px 10px !important;
+  }
+}
+
