@@ -506,60 +506,7 @@
       </div>
     </section>
 
-    <!-- Sección de Preguntas Frecuentes (FAQ) -->
-    <section class="section faq-section" aria-label="Preguntas frecuentes" style="padding-top: clamp(4rem, 6vh, 6rem);">
 
-      <div class="container">
-        <div class="section-title-wrapper fade-in-up">
-          <span class="section-subtitle">Preguntas Frecuentes</span>
-          <h2>Dudas habituales sobre encargos</h2>
-        </div>
-
-        <div class="faq-list">
-          
-          <!-- Pregunta 1 -->
-          <div class="faq-item fade-in-up">
-            <button class="faq-question-btn" aria-expanded="false">
-              ¿Con cuánta antelación debo realizar mi encargo?
-            </button>
-            <div class="faq-answer">
-              <p>Recomendamos realizar la solicitud de tartas personalizadas con un mínimo de 3 a 5 días de antelación. Para eventos grandes o enlaces nupciales, aconsejamos reservar con al menos 2 semanas de antelación para asegurar nuestra disponibilidad en obrador.</p>
-            </div>
-          </div>
-
-          <!-- Pregunta 2 -->
-          <div class="faq-item fade-in-up">
-            <button class="faq-question-btn" aria-expanded="false">
-              ¿Ofrecéis tartas sin gluten o sin alérgenos?
-            </button>
-            <div class="faq-answer">
-              <p>Elaboramos recetas adaptadas (sin gluten o lactosa) bajo petición específica. Sin embargo, dado que trabajamos en un único obrador de forma artesanal, no podemos garantizar la ausencia total de trazas (contaminación cruzada). Si sufres una alergia grave, por favor consúltanos antes de realizar el pedido.</p>
-            </div>
-          </div>
-
-          <!-- Pregunta 3 -->
-          <div class="faq-item fade-in-up">
-            <button class="faq-question-btn" aria-expanded="false">
-              ¿Cómo se realiza el pago del encargo?
-            </button>
-            <div class="faq-answer">
-              <p>Una vez definamos el tamaño, diseño y sabores de tu tarta, te enviaremos una confirmación de presupuesto. Para formalizar el encargo, solicitamos una señal del 50% mediante transferencia bancaria o Bizum, y el resto se abona al recoger la tarta en nuestro atelier.</p>
-            </div>
-          </div>
-
-          <!-- Pregunta 4 -->
-          <div class="faq-item fade-in-up">
-            <button class="faq-question-btn" aria-expanded="false">
-              ¿Hacéis entregas a domicilio?
-            </button>
-            <div class="faq-answer">
-              <p>Por defecto, los encargos se recogen en nuestro obrador para garantizar que el transporte de estas elaboraciones tan delicadas sea óptimo. Para eventos grandes, disponemos de un servicio especial de entrega a domicilio con transporte refrigerado bajo presupuesto.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
 
     <!-- CTA Final -->
     <section class="section cta-banner-section" style="background-color: var(--color-brand-coral); border-top: none; border-bottom: none; position: relative; overflow: hidden;" aria-label="Comenzar un encargo">
@@ -579,62 +526,15 @@
   <!-- Marcador de Footer -->
   <div id="footer-placeholder"></div>
 
-  <!-- FAQ Schema.org JSON-LD para SEO -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "¿Con cuánta antelación debo realizar mi encargo?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Recomendamos realizar la solicitud de tartas personalizadas con un mínimo de 3 a 5 días de antelación. Para eventos grandes, aconsejamos reservar con al menos 2 semanas de antelación."
-        }
-      },{
-        "@type": "Question",
-        "name": "¿Ofrecéis tartas sin gluten o sin alérgenos?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Elaboramos recetas adaptadas bajo petición específica. Sin embargo, no podemos garantizar la ausencia total de trazas de contaminación cruzada."
-        }
-      },{
-        "@type": "Question",
-        "name": "¿Cómo se realiza el pago del encargo?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Se solicita una señal del 50% mediante Bizum o transferencia y el 50% restante al recoger la tarta en el atelier."
-        }
-      },{
-        "@type": "Question",
-        "name": "¿Hacéis entregas a domicilio?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Por defecto, los encargos se recogen en el obrador. Para grandes eventos disponemos de entrega refrigerada especial."
-        }
-      }]
-    }
-  </script>
 
-  <!-- Lógica de la sección FAQ (Acordeón) y contacto WhatsApp -->
+
+  <!-- Lógica de contacto WhatsApp -->
   <script type="module">
     import { businessConfig } from './src/config/business.js?v=7';
 
     document.addEventListener('DOMContentLoaded', () => {
-      initFaqAccordion();
       initWhatsAppLinks();
     });
-
-    function initFaqAccordion() {
-      const faqItems = document.querySelectorAll('.faq-item');
-      faqItems.forEach(item => {
-        const btn = item.querySelector('.faq-question-btn');
-        btn.addEventListener('click', () => {
-          const isOpen = item.classList.toggle('open');
-          btn.setAttribute('aria-expanded', isOpen);
-        });
-      });
-    }
 
     function initWhatsAppLinks() {
       const faqWa = document.getElementById('faq-whatsapp-btn');
