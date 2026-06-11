@@ -1,4 +1,4 @@
-import { businessConfig } from '../config/business.js?v=6';
+import { businessConfig } from '../config/business.js?v=7';
 import { productsData } from '../data/products.js?v=3';
 import { testimonialsData } from '../data/testimonials.js';
 
@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   try { initForms(); } catch (e) { console.error('Forms failed:', e); }
   try { initMapCoords(); } catch (e) { console.error('Map coords failed:', e); }
   try { initVideoControl(); } catch (e) { console.error('Video control failed:', e); }
+  try { initHeroCarousel(); } catch (e) { console.error('Hero carousel failed:', e); }
   try { initGalleryLightbox(); } catch (e) { console.error('Gallery lightbox failed:', e); }
 });
 
@@ -342,26 +343,25 @@ function initVideoControl() {
 
   let currentMode = null; // 'desktop' o 'mobile'
 
-  // 1. Cargar fuentes del video de forma dinámica según resolución
+  // 1. Cargar fuente del video de forma dinámica solo en pantallas grandes para optimizar datos móviles
   const updateVideoSource = () => {
     const isMobile = window.innerWidth <= 768;
-    const targetMode = isMobile ? 'mobile' : 'desktop';
 
+    if (isMobile) {
+      // En móvil, no cargamos ni reproducimos el video, ya que se mostrará el carusel de fotos.
+      video.removeAttribute('src');
+      video.pause();
+      currentMode = 'mobile';
+      return;
+    }
+
+    const targetMode = 'desktop';
     // Evitar recargar si ya está en el modo correcto
     if (currentMode === targetMode) return;
     currentMode = targetMode;
 
-    const poster = isMobile 
-      ? 'images/posters/hero-le-canele-mobile.jpg' 
-      : 'images/posters/hero-le-canele-desktop.jpg';
-      
-    const webmSrc = isMobile 
-      ? 'videos/hero-le-canele-mobile.webm' 
-      : 'videos/hero-le-canele-desktop.webm';
-      
-    const mp4Src = isMobile 
-      ? 'videos/hero-le-canele-mobile.mp4' 
-      : 'videos/hero-le-canele-desktop.mp4';
+    const poster = 'images/posters/hero-le-canele-desktop.jpg';
+    const mp4Src = 'videos/hero-le-canele-desktop.mp4';
 
     video.setAttribute('poster', poster);
 
@@ -408,6 +408,9 @@ function initVideoControl() {
   // 2. Respetar prefers-reduced-motion (no autoplay)
   const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   const handleMotionChange = (e) => {
+    // Si estamos en móvil, no hacemos nada con el video
+    if (window.innerWidth <= 768) return;
+    
     if (e.matches) {
       video.removeAttribute('autoplay');
       video.pause();
@@ -429,6 +432,9 @@ function initVideoControl() {
   // 3. Control manual de pausa/reproducción
   if (controlBtn) {
     controlBtn.addEventListener('click', () => {
+      // Si estamos en móvil, no hacemos nada
+      if (window.innerWidth <= 768) return;
+
       if (video.paused) {
         video.play().then(() => {
           controlBtn.textContent = '⏸';
@@ -449,6 +455,135 @@ function initVideoControl() {
       }
     });
   }
+}
+
+/**
+ * 3.1. Inicialización y control del carusel de imágenes en móviles
+ */
+function initHeroCarousel() {
+  const frame = document.querySelector('.hero-carousel-frame');
+  if (!frame) return;
+
+  const slides = frame.querySelectorAll('.hero-carousel-slide');
+  const prevBtn = frame.querySelector('.prev');
+  const nextBtn = frame.querySelector('.next');
+  const dotsContainer = frame.querySelector('#carousel-dots-container');
+  if (slides.length === 0) return;
+
+  let currentIndex = 0;
+  let cycleInterval = null;
+  const cycleTime = 3500; // 3.5 segundos por imagen
+
+  // 1. Crear dots dinámicamente según el número de slides
+  dotsContainer.innerHTML = '';
+  slides.forEach((_, index) => {
+    const dot = document.createElement('span');
+    dot.classList.add('carousel-dot');
+    if (index === 0) dot.classList.add('active');
+    dot.setAttribute('data-index', index);
+    dot.setAttribute('aria-label', `Ir a imagen ${index + 1}`);
+    dotsContainer.appendChild(dot);
+  });
+  const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+  // 2. Función para ir a un slide específico
+  const showSlide = (index) => {
+    // Asegurar límites
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+
+    // Quitar activa de slide actual y dot actual
+    slides[currentIndex].classList.remove('active');
+    dots[currentIndex].classList.remove('active');
+
+    // Activar el nuevo slide y dot
+    currentIndex = index;
+    slides[currentIndex].classList.add('active');
+    dots[currentIndex].classList.add('active');
+
+    // Desplazar el contenedor de dots si es necesario para mantener el dot activo visible
+    const dotEl = dots[currentIndex];
+    if (dotsContainer.scrollWidth > dotsContainer.clientWidth) {
+      dotsContainer.scrollTo({
+        left: dotEl.offsetLeft - dotsContainer.clientWidth / 2 + dotEl.clientWidth / 2,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const nextSlide = () => showSlide(currentIndex + 1);
+  const prevSlide = () => showSlide(currentIndex - 1);
+
+  // 3. Temporizador de avance automático
+  const startAutoplay = () => {
+    stopAutoplay();
+    cycleInterval = setInterval(nextSlide, cycleTime);
+  };
+
+  const stopAutoplay = () => {
+    if (cycleInterval) clearInterval(cycleInterval);
+  };
+
+  // Reiniciar autoplay al interactuar
+  const resetAutoplay = () => {
+    stopAutoplay();
+    startAutoplay();
+  };
+
+  // 4. Listeners para controles manuales
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      resetAutoplay();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      resetAutoplay();
+    });
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      const idx = parseInt(e.target.getAttribute('data-index'), 10);
+      showSlide(idx);
+      resetAutoplay();
+    });
+  });
+
+  // 5. Soporte para gestos táctiles deslizar (swipe)
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  frame.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopAutoplay();
+  }, { passive: true });
+
+  frame.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+    startAutoplay();
+  }, { passive: true });
+
+  const handleSwipe = () => {
+    const diff = touchEndX - touchStartX;
+    const minSwipeDistance = 50; // píxeles mínimos para considerar swipe
+    if (Math.abs(diff) > minSwipeDistance) {
+      if (diff < 0) {
+        // Deslizar hacia la izquierda -> Siguiente imagen
+        nextSlide();
+      } else {
+        // Deslizar hacia la derecha -> Anterior imagen
+        prevSlide();
+      }
+    }
+  };
+
+  // Iniciar carusel
+  startAutoplay();
 }
 
 /**

@@ -24,7 +24,7 @@
   <meta name="twitter:image" content="images/brand/logo-le-canele-transparent.png">
 
   <!-- Hojas de Estilos -->
-  <link rel="stylesheet" href="src/styles/style.css?v=6">
+  <link rel="stylesheet" href="src/styles/style.css?v=7">
   
   <!-- Favicon Oficial -->
   <link rel="icon" type="image/png" href="images/brand/favicon-le-canele.png">
@@ -61,14 +61,73 @@
           </div>
         </div>
 
-        <!-- Columna Derecha: Vídeo Enmarcado Premium -->
+        <!-- Columna Derecha: Vídeo Enmarcado Premium (Escritorio) / Carusel de Imágenes (Móvil) -->
         <div class="hero-video-col">
-          <div class="hero-video-frame">
+          <!-- Frame del Vídeo (Escritorio y Tablet) -->
+          <div class="hero-video-frame d-none-mobile">
             <video class="hero-video-bg" id="hero-video" autoplay loop muted playsinline poster="images/posters/hero-le-canele-desktop.jpg" aria-hidden="true" style="width: 100%; height: 100%; object-fit: cover;">
               <!-- Se cargará dinámicamente desde JS para evitar doble descarga y asegurar compatibilidad -->
             </video>
             <!-- Botón de Control de Video -->
             <button class="video-control-btn-inner" id="video-control" aria-label="Pausar video" aria-live="polite">⏸</button>
+          </div>
+
+          <!-- Frame del Carusel de Imágenes (Móvil) -->
+          <div class="hero-carousel-frame d-block-mobile">
+            <div class="hero-carousel-slides">
+              <div class="hero-carousel-slide active">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.02.jpeg" alt="Especialidad Le Canele 1" loading="eager">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.02%20(1).jpeg" alt="Especialidad Le Canele 2" loading="lazy">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.02%20(2).jpeg" alt="Especialidad Le Canele 3" loading="lazy">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.02%20(3).jpeg" alt="Especialidad Le Canele 4" loading="lazy">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.03.jpeg" alt="Especialidad Le Canele 5" loading="lazy">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.03%20(1).jpeg" alt="Especialidad Le Canele 6" loading="lazy">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.03%20(2).jpeg" alt="Especialidad Le Canele 7" loading="lazy">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.03%20(3).jpeg" alt="Especialidad Le Canele 8" loading="lazy">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.03%20(4).jpeg" alt="Especialidad Le Canele 9" loading="lazy">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.03%20(5).jpeg" alt="Especialidad Le Canele 10" loading="lazy">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.03%20(6).jpeg" alt="Especialidad Le Canele 11" loading="lazy">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.03%20(7).jpeg" alt="Especialidad Le Canele 12" loading="lazy">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.03%20(8).jpeg" alt="Especialidad Le Canele 13" loading="lazy">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.03%20(9).jpeg" alt="Especialidad Le Canele 14" loading="lazy">
+              </div>
+              <div class="hero-carousel-slide">
+                <img src="carusel/WhatsApp%20Image%202026-06-11%20at%2012.41.03%20(10).jpeg" alt="Especialidad Le Canele 15" loading="lazy">
+              </div>
+            </div>
+            
+            <!-- Controles de Flecha -->
+            <button class="carousel-control-btn prev" id="carousel-prev" aria-label="Imagen anterior">‹</button>
+            <button class="carousel-control-btn next" id="carousel-next" aria-label="Imagen siguiente">›</button>
+
+            <!-- Indicadores (Puntos / Dots) -->
+            <div class="carousel-dots" id="carousel-dots-container"></div>
           </div>
         </div>
       </div>
@@ -281,7 +340,7 @@
 
   <!-- Inicialización de Enlaces de WhatsApp -->
   <script type="module">
-    import { businessConfig } from './src/config/business.js?v=6';
+    import { businessConfig } from './src/config/business.js?v=7';
     
     document.addEventListener('DOMContentLoaded', () => {
       const ctaWa = document.getElementById('cta-whatsapp-link');
@@ -393,10 +452,10 @@
     </div>
   </div>
 
-  <script type="module" src="src/components/header.js?v=6"></script>
-  <script type="module" src="src/components/footer.js?v=6"></script>
-  <script type="module" src="src/components/whatsapp.js?v=6"></script>
-  <script type="module" src="src/components/cookies.js?v=6"></script>
-  <script type="module" src="src/js/app.js?v=6"></script>
+  <script type="module" src="src/components/header.js?v=7"></script>
+  <script type="module" src="src/components/footer.js?v=7"></script>
+  <script type="module" src="src/components/whatsapp.js?v=7"></script>
+  <script type="module" src="src/components/cookies.js?v=7"></script>
+  <script type="module" src="src/js/app.js?v=7"></script>
 </body>
 </html>
