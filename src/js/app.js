@@ -1,4 +1,4 @@
-import { businessConfig } from '../config/business.js?v=7';
+import { businessConfig } from '../config/business.js?v=8';
 import { productsData } from '../data/products.js?v=3';
 import { testimonialsData } from '../data/testimonials.js';
 
@@ -33,6 +33,7 @@ function initLoader() {
 
   setTimeout(() => {
     loader.classList.add('fade-out');
+    document.body.classList.remove('loading'); // Liberar scroll al terminar la carga
     setTimeout(() => {
       loader.style.display = 'none';
     }, 600);

@@ -1,4 +1,4 @@
-import { businessConfig } from '../config/business.js?v=7';
+import { businessConfig } from '../config/business.js?v=8';
 
 /**
  * Componente Reutilizable: Footer (Rediseñado de alta gama)
