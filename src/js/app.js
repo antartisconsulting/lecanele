@@ -1,4 +1,4 @@
-import { businessConfig } from '../config/business.js';
+import { businessConfig } from '../config/business.js?v=4';
 import { productsData } from '../data/products.js?v=3';
 import { testimonialsData } from '../data/testimonials.js';
 

@@ -67,9 +67,22 @@
             <!-- Horario -->
             <li class="contact-details-item">
               <div class="contact-details-icon">🕒</div>
-              <div class="contact-details-text">
-                <h4>Horario</h4>
-                <p id="contact-hours">[AÑADIR HORARIO]</p>
+              <div class="contact-details-text" style="width: 100%;">
+                <h4>Horario de Apertura</h4>
+                <div class="schedule-table" style="margin-top: 10px; display: grid; gap: 8px; font-size: 1rem; color: var(--color-text-main); max-width: 420px;">
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1.5px dashed var(--color-border); padding-bottom: 6px;">
+                    <strong>Lunes a Viernes:</strong>
+                    <span>8:00 - 13:30 | 16:30 - 20:30</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1.5px dashed var(--color-border); padding-bottom: 6px; color: var(--color-brand-coral); font-weight: 600;">
+                    <strong>Martes:</strong>
+                    <span>Cerrado por descanso</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1.5px dashed var(--color-border); padding-bottom: 6px;">
+                    <strong>Sábado y Domingo:</strong>
+                    <span>9:00 - 14:30 | 16:30 - 20:30</span>
+                  </div>
+                </div>
               </div>
             </li>
 
@@ -79,15 +92,6 @@
               <div class="contact-details-text">
                 <h4>Teléfono</h4>
                 <p><a href="tel:600000000" id="contact-phone">[AÑADIR TELÉFONO]</a></p>
-              </div>
-            </li>
-
-            <!-- Email -->
-            <li class="contact-details-item">
-              <div class="contact-details-icon">✉️</div>
-              <div class="contact-details-text">
-                <h4>Correo electrónico</h4>
-                <p><a href="mailto:hola@lecanele.com" id="contact-email">[AÑADIR CORREO ELECTRÓNICO]</a></p>
               </div>
             </li>
 
@@ -101,71 +105,21 @@
             </li>
           </ul>
 
-          <!-- Mapa Placeholder Interactivo -->
-          <div class="map-container">
-            <div class="map-placeholder">
-              <div class="contact-details-icon" style="background-color: var(--color-brand-pink); color: var(--color-text-main); font-size: 1.5rem; width: 56px; height: 56px; margin-bottom: 15px;">🗺️</div>
-              <h3 class="map-placeholder-title">Localización</h3>
-              <p class="map-placeholder-desc">Coordenadas: <span id="contact-coords">[AÑADIR COORDENADAS]</span></p>
-              <a href="#" id="open-map-btn" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">
-                Abrir en Google Maps
-              </a>
-            </div>
-          </div>
-
         </div>
 
-        <!-- Formulario Column -->
-        <div class="contact-form-column fade-in-up active">
-          <div class="form-card" id="contact-form-container" style="padding: clamp(1.5rem, 4vw, 3.5rem);">
-            <h3 class="form-serif" style="margin-bottom: 25px; font-size: 1.65rem; border-bottom: 1.5px dashed var(--color-border); padding-bottom: 15px; color: var(--color-text-main);">Enviar una consulta</h3>
-            
-            <form id="contact-form" novalidate>
-              
-              <!-- Nombre -->
-              <div class="form-group">
-                <label for="contact-name" class="form-label">Nombre Completo *</label>
-                <input type="text" id="contact-name" class="form-control" placeholder="Ej. Sofía García" required>
-                <div class="form-error-msg">Este campo es obligatorio.</div>
-              </div>
-
-              <!-- Correo -->
-              <div class="form-group">
-                <label for="contact-form-email" class="form-label">Correo Electrónico *</label>
-                <input type="email" id="contact-form-email" class="form-control" placeholder="Ej. sofia@email.com" required>
-                <div class="form-error-msg">Introduce un correo electrónico válido.</div>
-              </div>
-
-              <!-- Teléfono -->
-              <div class="form-group">
-                <label for="contact-form-phone" class="form-label">Teléfono *</label>
-                <input type="tel" id="contact-form-phone" class="form-control" placeholder="Ej. 600000000" required>
-                <div class="form-error-msg">Introduce un teléfono de contacto válido.</div>
-              </div>
-
-              <!-- Mensaje -->
-              <div class="form-group">
-                <label for="contact-form-message" class="form-label">Mensaje *</label>
-                <textarea id="contact-form-message" class="form-control" placeholder="Escribe aquí tu consulta..." required></textarea>
-                <div class="form-error-msg">Este campo es obligatorio.</div>
-              </div>
-
-              <!-- Aceptación Privacidad -->
-              <label class="form-checkbox">
-                <input type="checkbox" id="contact-privacy" required>
-                <span>Acepto la <a href="legal.html#privacidad" target="_blank" style="text-decoration: underline; color: var(--color-brand-coral);">política de privacidad</a>.</span>
-                <span class="form-error-msg" style="display: block; margin-top: 5px; color: var(--color-error); font-weight: 500; display: none;">Debes aceptar la política de privacidad.</span>
-              </label>
-
-              <!-- Botón de Envío -->
-              <div style="margin-top: 30px;">
-                <button type="submit" class="btn btn-primary" style="width: 100%;">
-                  <span class="loader-spinner"></span>
-                  <span class="btn-text">Enviar mensaje</span>
-                </button>
-              </div>
-
-            </form>
+        <!-- Columna Derecha: Mapa Interactivo Premium -->
+        <div class="contact-map-column fade-in-up active">
+          <div class="map-container" style="height: 100%; min-height: 450px; border: 1.5px solid var(--color-gold); box-shadow: var(--shadow-premium);">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3040.6725890835436!2d-3.5381869234440614!3d40.34785407145063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4225b6a7a7a58b%3A0xe21558bf2a0ebde3!2sAv.%20de%20Levante%2C%20236%2C%2028521%20Rivas-Vaciamadrid%2C%20Madrid!5e0!3m2!1ses!2ses!4v1718040000000!5m2!1ses!2ses" 
+              width="100%" 
+              height="100%" 
+              style="border:0; display: block;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mapa de localización de Le Canele en Rivas-Vaciamadrid">
+            </iframe>
           </div>
         </div>
 
@@ -179,32 +133,29 @@
 
   <!-- Lógica Dinámica -->
   <script type="module">
-    import { businessConfig } from './src/config/business.js';
+    import { businessConfig } from './src/config/business.js?v=4';
 
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('contact-address').textContent = `${businessConfig.address}, ${businessConfig.postalCode} ${businessConfig.city}`;
-      document.getElementById('contact-hours').textContent = businessConfig.openingHours;
       
       const phoneEl = document.getElementById('contact-phone');
-      phoneEl.textContent = businessConfig.phone;
-      phoneEl.href = `tel:${businessConfig.phone.replace(/\s/g, '')}`;
-
-      const emailEl = document.getElementById('contact-email');
-      emailEl.textContent = businessConfig.email;
-      emailEl.href = `mailto:${businessConfig.email}`;
+      if (phoneEl) {
+        phoneEl.textContent = businessConfig.phone;
+        phoneEl.href = `tel:${businessConfig.phone.replace(/\s/g, '')}`;
+      }
 
       const instagramEl = document.getElementById('contact-instagram');
-      instagramEl.textContent = `@${businessConfig.instagram}`;
-      instagramEl.href = businessConfig.socialLinks.instagram;
-
-      document.getElementById('contact-coords').textContent = businessConfig.mapCoordinates;
+      if (instagramEl) {
+        instagramEl.textContent = `@${businessConfig.instagram}`;
+        instagramEl.href = businessConfig.socialLinks.instagram;
+      }
     });
   </script>
 
-  <script type="module" src="src/components/header.js"></script>
-  <script type="module" src="src/components/footer.js"></script>
-  <script type="module" src="src/components/whatsapp.js"></script>
-  <script type="module" src="src/components/cookies.js"></script>
+  <script type="module" src="src/components/header.js?v=4"></script>
+  <script type="module" src="src/components/footer.js?v=4"></script>
+  <script type="module" src="src/components/whatsapp.js?v=4"></script>
+  <script type="module" src="src/components/cookies.js?v=4"></script>
   <script type="module" src="src/js/app.js?v=4"></script>
 </body>
 </html>

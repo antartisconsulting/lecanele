@@ -100,25 +100,34 @@
 
   <!-- Lógica Dinámica -->
   <script type="module">
-    import { businessConfig } from './src/config/business.js';
+    import { businessConfig } from './src/config/business.js?v=4';
 
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('.business-address-placeholder').textContent = `${businessConfig.address}, ${businessConfig.postalCode} ${businessConfig.city}`;
       
       const emailEl = document.querySelector('.business-email-placeholder');
-      emailEl.textContent = businessConfig.email;
-      emailEl.href = `mailto:${businessConfig.email}`;
+      if (emailEl) {
+        if (businessConfig.email) {
+          emailEl.textContent = businessConfig.email;
+          emailEl.href = `mailto:${businessConfig.email}`;
+        } else {
+          const emailLi = emailEl.closest('li');
+          if (emailLi) emailLi.style.display = 'none';
+        }
+      }
 
       const phoneEl = document.querySelector('.business-phone-placeholder');
-      phoneEl.textContent = businessConfig.phone;
-      phoneEl.href = `tel:${businessConfig.phone.replace(/\s/g, '')}`;
+      if (phoneEl) {
+        phoneEl.textContent = businessConfig.phone;
+        phoneEl.href = `tel:${businessConfig.phone.replace(/\s/g, '')}`;
+      }
     });
   </script>
 
-  <script type="module" src="src/components/header.js"></script>
-  <script type="module" src="src/components/footer.js"></script>
-  <script type="module" src="src/components/whatsapp.js"></script>
-  <script type="module" src="src/components/cookies.js"></script>
+  <script type="module" src="src/components/header.js?v=4"></script>
+  <script type="module" src="src/components/footer.js?v=4"></script>
+  <script type="module" src="src/components/whatsapp.js?v=4"></script>
+  <script type="module" src="src/components/cookies.js?v=4"></script>
   <script type="module" src="src/js/app.js?v=4"></script>
 </body>
 </html>
