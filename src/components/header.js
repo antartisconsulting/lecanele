@@ -1,4 +1,4 @@
-import { businessConfig } from '../config/business.js?v=4';
+import { businessConfig } from '../config/business.js?v=6';
 
 /**
  * Componente Reutilizable: Header & Menú Móvil Refinado

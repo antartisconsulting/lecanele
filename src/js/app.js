@@ -1,4 +1,4 @@
-import { businessConfig } from '../config/business.js?v=4';
+import { businessConfig } from '../config/business.js?v=6';
 import { productsData } from '../data/products.js?v=3';
 import { testimonialsData } from '../data/testimonials.js';
 
@@ -365,20 +365,9 @@ function initVideoControl() {
 
     video.setAttribute('poster', poster);
 
-    // Limpiar y crear los nuevos elementos source
-    video.innerHTML = '';
-    
-    const sourceWebm = document.createElement('source');
-    sourceWebm.src = webmSrc;
-    sourceWebm.type = 'video/webm';
-    
-    const sourceMp4 = document.createElement('source');
-    sourceMp4.src = mp4Src;
-    sourceMp4.type = 'video/mp4';
-    
-    video.appendChild(sourceWebm);
-    video.appendChild(sourceMp4);
-    
+    // Asignar el src del video directamente al archivo MP4 para máxima compatibilidad con Safari en iOS
+    video.removeAttribute('src');
+    video.src = mp4Src;
     video.load();
 
     // Respetar prefers-reduced-motion y reproducir
